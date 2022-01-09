@@ -37,5 +37,6 @@ This will run all tests in the `src` folder and it will watch for any changes to
 
 - Improve testing
 - Add animations
-- Add loading state
 - Localization
+- add back action
+- recalculate score on back

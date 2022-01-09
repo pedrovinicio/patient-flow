@@ -26,10 +26,8 @@ const QuestionFlow = props => {
     function findOutcomeId(possibleOutcomes) {
         for (let i = 0; i < possibleOutcomes.length; i++) {
             if(!possibleOutcomes[i].max_score) {
-                console.log("returning: " + possibleOutcomes[i].outcome);
                 return possibleOutcomes[i].outcome;
             } else if(score <= possibleOutcomes[i].max_score) {
-                console.log("returning: " + possibleOutcomes[i].outcome);
                 return possibleOutcomes[i].outcome;
             }
         }
