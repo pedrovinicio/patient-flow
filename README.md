@@ -1,6 +1,6 @@
-# Service health monitoring app
+# Heartburn checker app
 
-Keep up to date on your services's health. Add a url and to see if a service is UP or DOWN.
+Small app to suggest an action to be taken with you have a heartburn condition.
 
 ## How to configure
 
@@ -38,5 +38,3 @@ This will run all tests in the `src` folder and it will watch for any changes to
 - Improve testing
 - Add animations
 - Localization
-- add back action
-- recalculate score on back
