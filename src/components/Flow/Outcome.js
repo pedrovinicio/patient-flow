@@ -28,6 +28,7 @@ const Outcome = props => {
             <div className={classes.title}>Thank you for answering the questions!</div>
             <div className={classes.message}>{props.children}</div>
             <div className={classes.buttonContainer}>
+                <Button onClick={props.onRestart} secondary={true}>Restart</Button>
                 {props.showBookAppointment && <Button onClick={openAppointmentModal}>Book appointment</Button>}
             </div>
         </div>

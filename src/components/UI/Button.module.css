@@ -11,11 +11,18 @@
     height: 2rem;
     text-align: center;
 }
+
+.buttonSecondary {
+    border: 1px solid #52ad9c;
+    background: white;
+    color: #6ACCBA;
+}
   
 .button:hover,
 .button:active {
     background: #52ad9c;
     border-color: #3d9081;
+    color: white;
 }
 
 .button:disabled {

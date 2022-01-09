@@ -8,13 +8,14 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 
 const QuestionFlow = props => {
     const [currentQuestion, setCurrentQuestion] = useState(props.questions[0]);
-    const [score, setScore] = useState(0);
+    const [previousQuestionFlow, setPreviousQuestionsFlow] = useState([]);
     const [outcome, setOutcome] = useState(null);
 
     const onAnswered = (answered) => {
-        setScore(score + answered.score);
+        currentQuestion.scored = answered.score;
         var nextQuestion = findNextQuestion(answered);
         if(nextQuestion){
+            setPreviousQuestionsFlow([...previousQuestionFlow, currentQuestion]);
             setCurrentQuestion(nextQuestion);
         } else{
             var outcomeId = findOutcomeId(currentQuestion.next);
@@ -24,6 +25,7 @@ const QuestionFlow = props => {
     }
 
     function findOutcomeId(possibleOutcomes) {
+        var score = calculateScore();
         for (let i = 0; i < possibleOutcomes.length; i++) {
             if(!possibleOutcomes[i].max_score) {
                 return possibleOutcomes[i].outcome;
@@ -31,6 +33,11 @@ const QuestionFlow = props => {
                 return possibleOutcomes[i].outcome;
             }
         }
+    }
+
+    function calculateScore() {
+        const reducer = (score, question) => score + question.scored;
+        return previousQuestionFlow.reduce(reducer, 0) + currentQuestion.scored;
     }
 
     function findNextQuestion(answered) {
@@ -46,14 +53,25 @@ const QuestionFlow = props => {
         }
     }
 
+    const onBackClicked = () =>{
+        var prevQuestion = previousQuestionFlow.pop();
+        setCurrentQuestion(prevQuestion);
+    }
+
+    const onRestart = () => {
+        setCurrentQuestion(props.questions[0]);
+        setPreviousQuestionsFlow([]);
+        setOutcome(null);
+    }
+
     return (
         <Card className={classes.container}>
             {!outcome && <div className={classes.header}>
-                {(currentQuestion.id !== props.questions[0].id) && <FontAwesomeIcon icon={faArrowLeft}/>}
+                {!!previousQuestionFlow.length && <FontAwesomeIcon icon={faArrowLeft} onClick={onBackClicked}/>}
             </div>}
             <div className={classes.content}>
                 {!outcome && <Question question={currentQuestion} onAnswered={onAnswered}></Question>}
-                {outcome && <Outcome showBookAppointment={outcome.show_booking_button}>{outcome.text}</Outcome>}
+                {outcome && <Outcome showBookAppointment={outcome.show_booking_button} onRestart={onRestart}>{outcome.text}</Outcome>}
             </div>
         </Card>
     );

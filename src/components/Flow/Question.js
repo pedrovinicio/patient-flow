@@ -12,7 +12,6 @@ const Question = props => {
 
     const onNextClicked = () => {
         props.onAnswered(answered);
-        setAnswered(null);
     };
 
     return (
