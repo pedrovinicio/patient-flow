@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Button from "../UI/Button";
-import Card from "../UI/Card";
 import Radio from "../UI/Radio";
 import classes from './Question.module.css';
 
@@ -13,18 +12,19 @@ const Question = props => {
 
     const onNextClicked = () => {
         props.onAnswered(answered);
+        setAnswered(null);
     };
 
     return (
-        <Card className={classes.container}>
+        <div>
             <div className={classes.question}>{props.question.question_text}</div>
             <div className={classes.answersContainer}>
                 <Radio answers={props.question.answers} onChange={onRadioChanged}></Radio>
             </div>
             <div className={classes.buttonContainer}>
-                <Button onClick={onNextClicked}>Next</Button>
+                <Button onClick={onNextClicked} disabled={!answered}>Next</Button>
             </div>
-        </Card>
+        </div>
     );
 };
 

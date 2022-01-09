@@ -1,0 +1,23 @@
+.container {
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 50rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+    border-bottom: 1px solid #52ad9c59;
+    height: 2.5rem;
+    color: #52ad9c;
+}
+
+.header svg {
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.content {
+    padding: 3rem 3rem 1rem 3rem;
+}

@@ -18,6 +18,13 @@
     border-color: #3d9081;
 }
 
+.button:disabled {
+    background: #deedea;
+    border-color: #d2e1de;
+    color: #6b8ea1;
+    cursor: unset;
+}
+
 .button:focus {
     outline: none;
 }
