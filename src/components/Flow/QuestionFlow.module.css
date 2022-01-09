@@ -2,6 +2,7 @@
     margin: 2rem auto;
     width: 80%;
     max-width: 50rem;
+    min-width: 25rem;
 }
 
 .header {
