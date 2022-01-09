@@ -5,6 +5,7 @@ import Outcome from './Outcome';
 import Question from './Question';
 import classes from './QuestionFlow.module.css';
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
+import ProgressStep from '../UI/ProgressStep';
 
 const QuestionFlow = props => {
     const [currentQuestion, setCurrentQuestion] = useState(props.questions[0]);
@@ -64,11 +65,28 @@ const QuestionFlow = props => {
         setOutcome(null);
     }
 
+    const createSteps = () => {
+        return props.questions.map((question) =>{
+            return { id: question.id };
+        });
+    }
+
+    const getCompleteStep = () => {
+        if (previousQuestionFlow.length > 0) {
+            return { id: previousQuestionFlow[previousQuestionFlow.length-1].id};
+        }
+        return {id: null};
+    }
+
     return (
         <Card className={classes.container}>
             {!outcome && <div className={classes.header}>
                 {!!previousQuestionFlow.length && <FontAwesomeIcon icon={faArrowLeft} onClick={onBackClicked}/>}
             </div>}
+            {!outcome && <ProgressStep
+                steps={createSteps()}
+                currentStep={getCompleteStep()}>
+            </ProgressStep>}
             <div className={classes.content}>
                 {!outcome && <Question question={currentQuestion} onAnswered={onAnswered}></Question>}
                 {outcome && <Outcome showBookAppointment={outcome.show_booking_button} onRestart={onRestart}>{outcome.text}</Outcome>}
