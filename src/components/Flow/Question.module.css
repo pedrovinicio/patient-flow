@@ -1,0 +1,26 @@
+.container {
+    margin: 2rem auto;
+    padding: 3rem 3rem 1rem 3rem;
+    width: 80%;
+    max-width: 50rem;
+}
+
+.question {
+    color: #3F6072;
+    font-size: 20px;
+    min-height: 5rem;
+}
+
+.answersContainer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buttonContainer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

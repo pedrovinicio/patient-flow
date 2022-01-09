@@ -1,0 +1,28 @@
+.container {
+    margin: 2rem auto;
+    padding: 3rem 3rem 1rem 3rem;
+    width: 80%;
+    max-width: 50rem;
+}
+
+.title {
+    color: #3F6072;
+    font-size: 28px;
+    font-weight: bold;
+    min-height: 5rem;
+}
+
+.message {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #3F6072;
+}
+
+.buttonContainer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
