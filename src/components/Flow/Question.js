@@ -23,6 +23,7 @@ const Question = props => {
                     {props.question.answers.map((answer) =>(
                         <Item key={answer.id}>
                             <RadioButton
+                                data-testid={answer.id}
                                 type="radio"
                                 name="radio"
                                 value={answer.id}
