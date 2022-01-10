@@ -1,6 +1,6 @@
 # Heartburn checker app
 
-Small app to suggest an action to be taken with you have a heartburn condition.
+Small app to suggest an action to be taken when you have a heartburn condition.
 
 ## How to configure
 
@@ -35,6 +35,5 @@ This will run all tests in the `src` folder and it will watch for any changes to
 
 ## TODO
 
-- Improve testing
 - Add animations
 - Localization
